@@ -69,7 +69,7 @@
 		$scope.del = function(index){
 			$scope.names.splice(index,1);
 		}*/
-	}]).directive("lkMultiFileSelect",function(){    
+	}]).directive("lkMultiFileSelect",function(){
 	  	return {
 	  		restrict:"E",
 	  		scope:{
@@ -77,14 +77,14 @@
 	  			files:'='
 	  		},
 	  		replace:'true',
-	  		template:'<div class="MultiFilesWrapper"><label class="import-file"><input type="file" accept="image/*" multiple hidden>上传</label><ul><li ng-repeat="item in names track by $index"><input ng-model="item" disabled="disabled"><i class="lk-close" ng-click="del($index)"></i></li></ul></div>', 
-	    	link: function(scope,ele,attrs){ 
+	  		template:'<div class="MultiFilesWrapper"><label class="import-file"><input type="file" accept="image/*" multiple hidden>上传</label><ul><li ng-repeat="item in names track by $index"><input ng-model="item" disabled="disabled"><i class="lk-close" ng-click="del($index)"></i></li></ul></div>',
+	    	link: function(scope,ele,attrs){
 	    		console.log(ele);
 
 	      		ele.find('input').bind("change", function(event){
 	      			scope.names.length = 0;
 					scope.files.length = 0;
-	      			var files = event.target.files;          
+	      			var files = event.target.files;
 	        		for(var i = 0;i < Math.min(files.length,4);i++ ){
 				 		scope.files.push(files[i]);
 				 		scope.names.push(files[i].name);
@@ -99,8 +99,8 @@
 					scope.files.splice(index,1);
 				}
 
-	      	}          
-   		}        
+	      	}
+   		}
 	})
 </script>
 </head>
